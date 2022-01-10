@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        background-color: blue;
+        background-repeat: 1;
+        max-width: 150px;
+    }
+
+
+</style>
+
+<body>
+    <p>Quiz </p>
+    <h1>What color is this?</h1>
+    <h2 onclick="feil()" id="a1">Red?</h2>
+    <h2 onclick="riktig()"id="a2">Blue?</h2>
+    <h2 onclick="feil2()" id="a3">Green?</h2>
+    <h2 onclick="feil3()" id="a4">Yellow?</h2>
+    
+    
+    <script>
+
+        function feil() {
+            document.getElementById('a1').innerHTML = 'Lol nope';
+        }
+        function riktig() {
+            document.getElementById('a2').innerHTML = 'Yessir!';
+        }
+        function feil2() {   
+            document.getElementById('a3').innerHTML = 'Nuh-uh';
+        }
+        function feil3() {
+            document.getElementById('a4').innerHTML = 'Roflmao';
+        }
+    </script>
+</body>
+</html>
