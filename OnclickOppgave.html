@@ -12,6 +12,25 @@
         background-repeat: 1;
         max-width: 150px;
     }
+    #a1 {
+        background-color: red;
+        max-width:150px;
+    }
+
+    #a2 {
+        background-color: blue;
+        max-width:160px;
+    }
+
+    #a3 {
+        background-color: green;
+        max-width: 170px;
+    }
+
+    #a4 {
+        background-color: yellow;
+        max-width:180px;
+    }
 
 
 </style>
@@ -19,10 +38,10 @@
 <body>
     <p>Quiz </p>
     <h1>What color is this?</h1>
-    <h2 onclick="feil()" id="a1">Red?</h2>
-    <h2 onclick="riktig()"id="a2">Blue?</h2>
-    <h2 onclick="feil2()" id="a3">Green?</h2>
-    <h2 onclick="feil3()" id="a4">Yellow?</h2>
+    <h2 onclick="feil()" id="a1">Option 1: Red</h2>
+    <h2 onclick="riktig()" id="a2">Option 2: Blue</h2>
+    <h2 onclick="feil2()" id="a3">Option 3: Green</h2>
+    <h2 onclick="feil3()" id="a4">Option 4: Yellow</h2>
     
     
     <script>
@@ -31,14 +50,19 @@
             document.getElementById('a1').innerHTML = 'Lol nope';
         }
         function riktig() {
-            document.getElementById('a2').innerHTML = 'Yessir!';
+            document.getElementById('a2').innerHTML = 'Obvious huh?';
         }
         function feil2() {   
-            document.getElementById('a3').innerHTML = 'Nuh-uh';
+            document.getElementById('a3').innerHTML = 'Yep, Im colorblind';
         }
         function feil3() {
             document.getElementById('a4').innerHTML = 'Roflmao';
         }
+
+        console.log ("Herpaderp")
+
+
+        
     </script>
 </body>
 </html>
