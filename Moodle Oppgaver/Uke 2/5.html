@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="58bytes.css">
+</head>
+<style>  
+
+</style>
+<body>
+    <h2 style="text-align: center;">Onload testing</h2>
+    <p>Under lasting av siden:</p>
+    <div style="margin-left:10px;" id="Load">15:35:55 GMT+0100 (Central European Standard time</div>
+    <br>
+    <p>Etter lasting av siden:</p>
+    <div style="margin-left:10px;" id="afterLoad">15:35:56 GMT+0100 (Central European Standard Time)</div>
+    <br>
+    <img style="max-width:100%;max-height:100%;" src="windows_xp.jpg" alt="windowsXp";>
+    <img style="max-width:100%;max-height:100%;" src="wxpbirb.jpg" alt="windowsBirb";>
+
+    <script>
+        document.getElementById('Load').innerHTML = '' + new date().toTimeString();
+
+        function afterLoad(){
+            document.getElementById('afterLoad').innerHTML = '' + new Date().toTimeString();
+        }
+    </script>
+    
+    
+    
+    
+    
+    
+
+    
+
+</body>
+</html>

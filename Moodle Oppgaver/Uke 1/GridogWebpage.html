@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        div.page {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: 1fr 4fr;
+            grid-template-areas:'header sponsor'
+                                'menu mainContent';
+        }
+
+        div.header {
+            background-color: rgb(10, 138, 197);
+            grid-area: header;
+            font-family:'Roboto', sans-serif;
+            font-size:45px;
+            font-weight:bold;
+            border:1px solid black;
+            text-align:center;
+            padding-top:5px;
+            padding-bottom:0px;
+        }
+
+        div.sponsor {
+            background-color: rgba(43, 243, 166, 0.541);
+            grid-area: sponsor;
+            font-family:'Roboto', sans-serif;
+            font-size:50px;
+            font-weight:bold;
+            text-align:center;
+        }
+        div.mainContent {
+            background-color: rgba(243, 24, 24, 0.678);
+            grid-area: mainContent;
+            
+            
+        }
+        div.menu {
+            background-color: rgb(252, 252, 111);
+            grid-area: menu;
+            font-family:'Roboto', sans-serif;
+            font-size:45px;
+            font-weight:bold;
+            border:1px solid black;
+            text-align: left;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="header"><img src="Fragile.jpg" height=60% width=90% alt="this is a picture">Tommy</div>
+        <div class="sponsor">sponsor(Headline)</div>
+        <div class="mainContent">mainContent</div> <!--Tenkt å ha en link eller flere bilder av memes-->
+        <div class="menu">Menu
+            <ul style="list-style-type:disc;">
+            <li>Herp</li>
+            <li>Derp</li>
+            <li>Nerp</li>
+            </ul>
+        </div>
+</body>
+</html>
