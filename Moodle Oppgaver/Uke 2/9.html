@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    round.{
+        border: 1px solid gray;
+        border-radius: 5px;
+        }
+
+    .stilig {
+        background-color: blueviolet;
+    }
+</style>
+<body>
+    <p> Ferdighet 8 - Endre andre ting enn innerHtml: value, style</p>
+    <input id="text" type="text"/>
+    <h2 id="overskrift">Overskrift</h2>
+    <button onclick="aquamarine(this)">A</button>
+    <button onclick="blue(this)">B</button>
+    <div id="bla">Bla Bla Bla</div>
+    <input id="chk" type="checkbox" onchange="toggleStyle()" />
+    
+    
+    <script>
+
+        function toggleStyle() {
+            var isChecked = document.getElementbyId('chk').checked;
+            document.getElementById('bla').classList.toggle('stilig', isChecked);
+        }
+
+        var textInput = document.getElementById('text');
+        var h2Element = document.getElementById('overskrift');
+
+        function aquamarine(clickedElement) {
+            textInput.style.backgroundColor = 'aquamarine';
+            h2Element.style.backgroundColor = 'aquamarine';
+            clickedElement.style.background = 'aquamarine';
+
+            textInput.classList.add('round');
+            h2Element.classList.add('round');
+            clickedElement.classList.add('round');
+
+            textInput.value = "Trykket på knapp A";
+        }
+
+        function blue(clickedElement) {
+            textInput.style.backgroundColor = 'blue';
+            h2Element.style.backgroundColor = 'blue';
+            clickedElement.style.backgroundColor = 'blue';
+
+            textInput.style.color = 'whitesmoke';
+            h2Element.style.color = 'whitesmoke';
+            clickedElement.style.color = 'whitesmoke';
+
+            textInput.style.fontWeight = 'bolder';
+            h2Element.style.fontWeight = 'bolder';
+            clickedElement.style.fontWeight = 'bolder';
+
+            textInput.classList.remove('round');
+            h2Element.classList.remove('round');
+            clickedElement.classList.remove('round');
+
+            textInput.value = "Trykket på knapp B";
+        }
+    </script>
+</body>
+</html>
