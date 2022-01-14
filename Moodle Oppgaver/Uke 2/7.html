@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 7</title>
+</head>
+<body>
+    <p>Ferdighet 7 - Sette variabel til resultat av et regnestykke. </p>
+    <input id="numberA" type="range" min="1" max="100" step="1" oninput="calculate()" value="2" />
+    <input id="numberB" type="range" min="2" max="100" step="1" oninput="calculate()" value="2" />
+    <div id="answer"></div>
+
+    <script>
+        var answerDiv = document.getElementById('answer');
+        var numberAInput = document.getElementById('numberA');
+        var numberBInput = document.getElementById('numberB');
+
+        calculate();
+
+        function calculate() {
+            var numberA = parseInt(numberAInput.value);
+            var numberB = parseInt(numberBInput.value);
+            var areal = numberA * numberB;
+            var omkrets = '2' * numberA + '2' * numberB;
+            
+            answerDiv.innerHTML = '' 
+                        + '<div>Areal:</div>' + numberA + '*' + numberB
+                        + '=' + areal + 'cm' + '<br/>'
+                        + '<div>Omkrets:</div>' + '2' + '*' + numberA + '+'
+                        + '2' + '*' + numberB + '=' + omkrets + 'cm' + '<br/>';
+        }
+    </script>
+
+</body>
+</html>
+
+(100°F − 32) × 5/9 = 37.778°C

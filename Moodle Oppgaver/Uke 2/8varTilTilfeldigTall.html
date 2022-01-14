@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 8 Sette variabel til tilfeldig tall</title>
+</head>
+<body>
+
+    <h1>Denne siden skal være random </h1>
+    
+    <p>Sette variabel til tilfeldig tall</p>
+    <div id="answer"></div>
+    <div id="answerHtml" style="font-family: monospace"></div>
+
+     <!--
+    Last siden på nytt for nye tall.
+    Endre tallet 10 på linje 20 og 21 til noe annet. Hva blir annerledes?
+    Endre tallet 100 på linje 20 og 21 til noe annet. Hva blir annerledes?
+    Ta bort Math.floor() på linje 20 og 21. Hva blir forskjellen?
+    -->
+
+    <script>
+        var answerDiv = document.getElementById('answer');
+        var answerHtmlDiv = document.getElementById('answerHtml');
+        calculate ();
+
+        function calculate() {
+            var numberA = 100 + Math.floor(Math.random() * 500);
+            var numberB = 100 + Math.floor(Math.random() * 500);
+            var numberC = 5 + Math.floor(Math.random() * 50);
+            var numberD = 0 + Math.floor(Math.random() * 50);
+                
+            answerDiv.innerHTML = '<div style="margin-left:20%;'
+                                + 'width:' + numberA + 'px;'
+                                + 'height:' + numberB + 'px;'
+                                + 'background-color:blue;'
+                                + 'border-color:#11CFCF;'
+                                + 'border-style:solid;'
+                                + 'border-width:' + numberC + 'px;'
+                                + 'border-radius:' + numberD + '%";'
+                                + '/>';
+
+        answerHtmlDiv.innerText = answerDiv.innerHtml;
+        }
+    </script>
+</body>
+</html>
