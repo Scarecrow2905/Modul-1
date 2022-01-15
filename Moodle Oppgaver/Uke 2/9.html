@@ -8,13 +8,42 @@
 </head>
 
 <style>
-    round.{
+    css1 {
+
         border: 1px solid gray;
         border-radius: 5px;
-        }
+        background-color: darkblue;
+    }
 
-    .stilig {
+    css2 {
+
+        font-family:Arial, Helvetica, sans-serif;
         background-color: blueviolet;
+    }
+
+    css3 {
+
+        font-size: large;
+        font-style: italic;
+        background-color: cadetblue;
+    }
+
+    css4 {
+
+        font-style: normal;
+        font-weight: bold;
+        background-color: crimson;
+        border-style: dotted;
+        padding-left: 5ch;
+
+    }
+
+    css5 {
+
+        font-style:italic;
+        background-color: darkgreen;
+        border-style: double;
+        margin-right: 10ch;
     }
 </style>
 <body>
@@ -24,14 +53,15 @@
     <button onclick="aquamarine(this)">A</button>
     <button onclick="blue(this)">B</button>
     <div id="bla">Bla Bla Bla</div>
-    <input id="chk" type="checkbox" onchange="toggleStyle()" />
+
+    <input id="chk" type="checkbox" onchange="toggleStyle(this)" />
     
     
     <script>
 
         function toggleStyle() {
             var isChecked = document.getElementbyId('chk').checked;
-            document.getElementById('bla').classList.toggle('stilig', isChecked);
+            document.getElementById('bla').classList.toggle('css3', isChecked);
         }
 
         var textInput = document.getElementById('text');
@@ -67,6 +97,11 @@
             clickedElement.classList.remove('round');
 
             textInput.value = "Trykket på knapp B";
+        }
+
+        function toggleStyle() {
+            var isChecked = document.getElementById('chk').checked;
+            document.getElementById('bla').classlist.toggle('css1', isChecked);
         }
     </script>
 </body>
