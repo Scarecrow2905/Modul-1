@@ -5,104 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <head>
+        <style>
+            .color 
+            {
+                background-color: purple;
+            }
+
+            .bolder
+            {
+                font-weight: italic;
+            }
+
+            .underline
+            {
+                text-decoration: underline;
+            }
+
+            .right
+            {
+                text-align: right;
+            }
+
+            .textcolor
+            {
+                color: green;
+            }
+
+        </style>
+
 </head>
 
-<style>
-    css1 {
-
-        border: 1px solid gray;
-        border-radius: 5px;
-        background-color: darkblue;
-    }
-
-    css2 {
-
-        font-family:Arial, Helvetica, sans-serif;
-        background-color: blueviolet;
-    }
-
-    css3 {
-
-        font-size: large;
-        font-style: italic;
-        background-color: cadetblue;
-    }
-
-    css4 {
-
-        font-style: normal;
-        font-weight: bold;
-        background-color: crimson;
-        border-style: dotted;
-        padding-left: 5ch;
-
-    }
-
-    css5 {
-
-        font-style:italic;
-        background-color: darkgreen;
-        border-style: double;
-        margin-right: 10ch;
-    }
-</style>
 <body>
-    <p> Ferdighet 8 - Endre andre ting enn innerHtml: value, style</p>
-    <input id="text" type="text"/>
-    <h2 id="overskrift">Overskrift</h2>
-    <button onclick="aquamarine(this)">A</button>
-    <button onclick="blue(this)">B</button>
-    <div id="bla">Bla Bla Bla</div>
+        <div id="test1">tester1</div>
+        <div id="test2">tester2</div>
+        <div id="test3">tester3</div>
+        <div id="test4">tester4</div>
+        <div id="test5">tester5</div>
 
-    <input id="chk" type="checkbox" onchange="toggleStyle(this)" />
+        <input id="boxCheck1" type="checkbox" onchange="toggleStyle1(this)" />
+        <input id="boxCheck2" type="checkbox" onchange="toggleStyle2(this)" />
+        <input id="boxCheck3" type="checkbox" onchange="toggleStyle3(this)" />
+        <input id="boxCheck4" type="checkbox" onchange="toggleStyle4(this)" />
+        <input id="boxCheck5" type="checkbox" onchange="toggleStyle5(this)" />
+        <script>
+function toggleStyle1() 
+            {
+                var isChecked = document.getElementById('boxCheck1').checked;
+                document.getElementById('test1').classList.toggle('color', isChecked);
+            }
+
+            function toggleStyle2() 
+            {
+                var isChecked = document.getElementById('boxCheck2').checked;
+                document.getElementById('test2').classList.toggle('bolder', isChecked);
+            }
+
+            function toggleStyle3() 
+            {
+                var isChecked = document.getElementById('boxCheck3').checked;
+                document.getElementById('test3').classList.toggle('underline', isChecked);
+            }
+
+            function toggleStyle4() 
+            {
+                var isChecked = document.getElementById('boxCheck4').checked;
+                document.getElementById('test4').classList.toggle('right', isChecked);
+            }
+
+            function toggleStyle5() 
+            {
+                var isChecked = document.getElementById('boxCheck5').checked;
+                document.getElementById('test5').classList.toggle('textcolor', isChecked);
+            }
+
+         </script>
+     </body>
+</head>
+<body>
     
-    
-    <script>
-
-        function toggleStyle() {
-            var isChecked = document.getElementbyId('chk').checked;
-            document.getElementById('bla').classList.toggle('css3', isChecked);
-        }
-
-        var textInput = document.getElementById('text');
-        var h2Element = document.getElementById('overskrift');
-
-        function aquamarine(clickedElement) {
-            textInput.style.backgroundColor = 'aquamarine';
-            h2Element.style.backgroundColor = 'aquamarine';
-            clickedElement.style.background = 'aquamarine';
-
-            textInput.classList.add('round');
-            h2Element.classList.add('round');
-            clickedElement.classList.add('round');
-
-            textInput.value = "Trykket på knapp A";
-        }
-
-        function blue(clickedElement) {
-            textInput.style.backgroundColor = 'blue';
-            h2Element.style.backgroundColor = 'blue';
-            clickedElement.style.backgroundColor = 'blue';
-
-            textInput.style.color = 'whitesmoke';
-            h2Element.style.color = 'whitesmoke';
-            clickedElement.style.color = 'whitesmoke';
-
-            textInput.style.fontWeight = 'bolder';
-            h2Element.style.fontWeight = 'bolder';
-            clickedElement.style.fontWeight = 'bolder';
-
-            textInput.classList.remove('round');
-            h2Element.classList.remove('round');
-            clickedElement.classList.remove('round');
-
-            textInput.value = "Trykket på knapp B";
-        }
-
-        function toggleStyle() {
-            var isChecked = document.getElementById('chk').checked;
-            document.getElementById('bla').classlist.toggle('css1', isChecked);
-        }
-    </script>
 </body>
 </html>
