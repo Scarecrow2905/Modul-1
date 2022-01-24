@@ -13,9 +13,9 @@
     <script>
         // Model
         var infoDiv;
-        var txtDiv1 = 'Hei'; 
-        var txtDiv2 = 'på';
-        var txtDiv3 = 'Deg';
+        var txtDiv1 = 'Tasd'; 
+        var txtDiv2 = 'Tommy';
+        var txtDiv3 = 'Tommy';
         let inputValue = '';
 
         // View
@@ -23,6 +23,7 @@
         function updateView(){
 
            app.innerHTML = 
+
             // txtDiv1 == txtDiv2 ? `<div> Tekst 1 og 2 er like</div>`:
             // txtDiv1 != txtDiv2 ? `<del> Tekst 1 og 2 er like</del>`:
 
@@ -48,16 +49,18 @@
         
         // Controller
         function compare(){
+            inputValue = '';
+            updateView();
             if (txtDiv1 == txtDiv2) inputValue += 'Tekst 1 og 2 er like<br>'; 
-            if (txtDiv1 != txtDiv2) inputValue += '<del>Text 1 og 2 er like<br>'; 
+            if (txtDiv1 != txtDiv2) inputValue += '<del>Text 1 og 2 er like</del><br>'; 
 
             if (txtDiv1 == txtDiv3) inputValue += 'Tekst 1 og 3 er like<br>'; 
-            if (txtDiv1 != txtDiv3) inputValue += '<del>Text 1 og 3 er like<br>'; 
+            if (txtDiv1 != txtDiv3) inputValue += '<del>Text 1 og 3 er like</del><br>'; 
 
             if (txtDiv2 == txtDiv3) inputValue += 'Tekst 2 og 3 er like<br>'; 
-            if (txtDiv2 != txtDiv3) inputValue += '<del>Text 2 og 3 er like<br>'; 
+            if (txtDiv2 != txtDiv3) inputValue += '<del>Text 2 og 3 er like</del><br>'; 
 
-                updateView();
+            updateView();
             }
 
     </script>
