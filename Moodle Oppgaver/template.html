@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVC Template</title>
+
+    <style>
+        html {
+        max-width:100ch;
+        padding:2ch;
+        margin:auto;
+        font-size:1.2em;
+        background-color: gray;
+      }
+    </style>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+
+        //Hjelpevariabel
+        var outputDiv = document.getElementById('output');
+
+        //Model
+        var welcomeMsg = '';
+
+        //View
+        showView();
+        function showView(){
+            let html = "";
+            html +=/*html*/`
+
+            <button onclick="showName()">Trykk her</button>
+            <div>${welcomeMsg}</div>
+            
+            `;
+            
+            outputDiv.innerHTML = html;
+        }
+
+        //Controller
+        function showName(){
+            welcomeMsg = 'Velkommen til en MVC Template';
+            showView();
+        }
+    </script>
+</body>
+</html>
