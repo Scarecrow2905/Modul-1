@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function and Parameter</title>
+
+    <style>
+        html {
+            background-color: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Ferdighet 2a - alternative eventhandlere - onchange</p>
+    <h3 onclick="testParameter('testClick')" onmuseout="testParameter('testMouseOut')">Test</h3>
+    <h2 id="info"></h2>
+
+    <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">More info</a>
+
+    <script>
+
+        function testParameter(anything) {
+            console.log(anything);
+            document.getElementById('info').innerHTML += anything+'<br>';
+        }
+        
+    </script>
+</body>
+
+</html>

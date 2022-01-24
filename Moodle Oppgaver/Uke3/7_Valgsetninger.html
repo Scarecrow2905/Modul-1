@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sammenligne to tekster</title>
+</head>
+<body>
+    <div id="app"></div>
+    <div id="test"></div>
+
+    <script>
+        // Model
+        var infoDiv;
+        var txtDiv1 = 'Hei'; 
+        var txtDiv2 = 'på';
+        var txtDiv3 = 'Deg';
+        let inputValue = '';
+
+        // View
+        updateView();
+        function updateView(){
+
+           app.innerHTML = 
+            // txtDiv1 == txtDiv2 ? `<div> Tekst 1 og 2 er like</div>`:
+            // txtDiv1 != txtDiv2 ? `<del> Tekst 1 og 2 er like</del>`:
+
+            // txtDiv1 == txtDiv3 ? `<div> Tekst 1 og 3 er like</div>`:
+            // txtDiv1 != txtDiv3 ? `<del> Tekst 1 og 3 er like</del>`:
+
+            // txtDiv2 == txtDiv3 ? `<div> Tekst 2 og 3 er like</div>`:
+            // txtDiv2 != txtDiv3 ? `<del> Tekst 2 og 3 er like</del>`:
+            
+            `
+            
+            <input type="text" id="txt1" value="${txtDiv1}" oninput="txtDiv1 = this.value" />
+            <br>
+            <input type="text" id="txt2" value="${txtDiv2}" oninput="txtDiv2 = this.value" />
+            <br>
+            <input type="text" id="txt3" value="${txtDiv3}" oninput="txtDiv3 = this.value" />
+            <div> ${inputValue}</div>
+            <button onclick="compare()">Sammenlign </button> 
+            `;
+        }
+     
+        
+        
+        // Controller
+        function compare(){
+            if (txtDiv1 == txtDiv2) inputValue += 'Tekst 1 og 2 er like<br>'; 
+            if (txtDiv1 != txtDiv2) inputValue += '<del>Text 1 og 2 er like<br>'; 
+
+            if (txtDiv1 == txtDiv3) inputValue += 'Tekst 1 og 3 er like<br>'; 
+            if (txtDiv1 != txtDiv3) inputValue += '<del>Text 1 og 3 er like<br>'; 
+
+            if (txtDiv2 == txtDiv3) inputValue += 'Tekst 2 og 3 er like<br>'; 
+            if (txtDiv2 != txtDiv3) inputValue += '<del>Text 2 og 3 er like<br>'; 
+
+                updateView();
+            }
+
+    </script>
+</body>
+</html>

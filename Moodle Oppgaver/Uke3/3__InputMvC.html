@@ -13,31 +13,44 @@
     <script>
         // model
         var personName = null;
-        var age = null;
+        var place = null;
 
 
         // view
         updateView();
         function updateView() {
             var nameTxt = personName ? `Hei, ${personName}!` : 'Fyll ut navn i tekstfelte.';
-            var ageTxt = age ? `Du er ${age} år gammel.` : 'Velg alder i slideren';
+            var placeTxt = place ? `Du bor i ${place}.` : 'Skriv hvor du bor.';
             document.getElementById('app').innerHTML = `
             Hva heter du? <br/>
             <input
                 type="text"
                 oninput="personName = this.value; "
-                value="${personName || ''}"
+                value="${personName || ' '}"
             />
             <br/>
             
-            Hvor gammel er du? <br/>
+            Hvor bor du? <br/>
             <input
-                type="range"
-                min="1"
-                max="120"
-                step="1"
-                value`        
-        }
+                type="text"
+                value="${place || ' '}"
+                oninput="place = this.value; "
+            /><br/>
+            <button onclick="register()">Registrer</button>
+            
+            <h3>Se her:</h3>
+            <hr/>
+            ${nameTxt}
+            <hr/>
+            ${placeTxt}
+            <hr/>
+            `;
+    }
+    // Controller
+    function register(){
+        alert('Ditt navn er ' + personName + ' og du bor i/på' + place);
+        updateView();
+    }
     </script>
 </body>
 </html>

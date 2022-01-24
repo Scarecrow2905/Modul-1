@@ -1,0 +1,31 @@
+body {
+    background-color: #eee; 
+    margin 0;
+}
+
+#home {
+    background: linear-gradient(#eee, #aaa);
+    background: -webkit-linear-gradient(top, #eee, #aaa);
+    background: -ms-linear-gradient(top, #eee,#aaa);
+    background: -moz-linear-gradient(top, #eee, #aaa);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 99;
+}
+    
+#home .title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 15%;
+    text-align: center;
+
+}
+
+#home .button {
+    background: #afa;
+    background: linear-gradient(#afa, #6f6);
+    background_
+}
