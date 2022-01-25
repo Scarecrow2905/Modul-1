@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    html {
+    background-color: rgb(4, 131, 148);
+    }
+
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        var btnBestill = document.getElementById('bestill');
+        var infoDiv = document.getElementById('info');
+        var bunnTykk = document.getElementById('tykkBunn');
+        var bunnTynn = document.getElementById('tynn');
+        var fyllTaco = document.getElementById('fyllTaco');
+        var fyllKylling = document.getElementById('fyllKylling');
+
+        // Model
+        var orderPage = '';
+
+        // View
+        showView();
+        function showView() {
+
+            app.innerHTML += `
+
+            <h3> Bestill Pizza </h3>
+            <div id="info" style="padding-bottom": 20px;>Gjør et valg på hver av linjene:</div><br>
+
+            Bunn:
+            <input id="tykkBunn" type="radio" name="bunn" onchange="info()" /> Tykk
+            <input id="tynnBunn" type="radio" name="bunn" onchange="info('tynn')" /> Tynn <br>
+            
+            Fyll:
+            <input id="fyllTaco" type="radio" name="fyll" onchange="info()" /> Taco
+            <input id="fyllKylling" type="radio" name="fyll" onchange="info()" /> Kylling
+            <input id="fyllPepperoni" type="radio" name="fyll" onchange="info()" /> Pepperoni <br>
+
+            Størrelse:
+            <input id="stor" type="radio" name="str" onchange="info()" /> Stor
+            <input id="middels" type="radio" name="str" onchange="info()" /> Middels
+            <input id="liten" type="radio" name="str" onchange="info()" /> Liten <br>
+
+            <button id="bestill" disabled="" onclick="alert('Pizza'n er bestilt!');">Bestill!</button>
+
+            `;   
+        }
+
+        // Controller
+        
+        function info(selected){
+            let bestilling = '';
+
+        if ((bunnTykk.checked || bunnTynn.checked) &&
+            (fyllTaco.checked || fyllKylling.checked || fyllPepperoni.checked) &&
+            (strStor.checked || strMiddels.checked || strLiten.checked)) {
+            infoDiv.innerHTML = 'Alt er klart til bestilling!';
+            btnBestill.disabled = false;
+        } else {
+            infoDiv.innerHTML = 'Du har ikke valgt:';
+
+            if (!bunnTykk.checked && ! bunnTynn.checked) {
+                infoDiv.innerHTML += '<li>bunn</li>';
+            }
+
+            if (!fyllTaco.checked && !fyllKylling.checked && !fyllPepperoni.checked) {
+                infoDiv.innerHTML += '<li>fyll</li>';
+            }
+
+            if (!strStor.checked && ! strMiddels.checked && !strLiten.checked) {
+                infoDiv.innerHTML += '<li>størrelse</li>';
+            }
+        }
+
+            showView();
+        };
+
+        //if(selected == 'Tykk' || selected == Tynn){
+                //bunn = selected;
+        //if(selected == 'kylling' || selected == 'taco' || selected == 'pepperoni')
+        //        fyll == selected;
+        
+
+        
+    </script>
+</body>
+</html>
