@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Team Oppgave 2</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+
+        //View
+        //I viewet så ligger alle adjektivhistoriene, når man påkaller f.eks "historieTre()" så fjernes alt i innerHTML og legger inn ny HTML kode fra funksjonen
+        
+        function updateView() {
+            document.getElementById("app").innerHTML =/*html*/`
+            <h3>Velkommen til Team 5 sin adjektiv historie!</h3>
+            <div>Skriv inn adjektiv: </div>
+            <input type="text" oninput="adjektiv.Ord1 = this.value" value="${adjektiv.Ord1}"/>
+            <input type="text" oninput="adjektiv.Ord2 = this.value" value="${adjektiv.Ord2}"/>
+            <input type="text" oninput="adjektiv.Ord3 = this.value" value="${adjektiv.Ord3}"/>
+            <input type="text" oninput="adjektiv.Ord4 = this.value" value="${adjektiv.Ord4}"/>
+            <input type="text" oninput="adjektiv.Ord5 = this.value" value="${adjektiv.Ord5}"/>
+            <input type="text" oninput="adjektiv.Ord6 = this.value" value="${adjektiv.Ord6}"/>
+            <input type="text" oninput="adjektiv.Ord7 = this.value" value="${adjektiv.Ord7}"/>
+            <input type="text" oninput="adjektiv.Ord8 = this.value" value="${adjektiv.Ord8}"/>
+            <input type="text" oninput="adjektiv.Ord9 = this.value" value="${adjektiv.Ord9}"/>
+            <input type="text" oninput="adjektiv.Ord10 = this.value" value="${adjektiv.Ord10}"/>
+            <input type="text" oninput="adjektiv.Ord11 = this.value" value="${adjektiv.Ord11}"/>
+            <input type="text" oninput="adjektiv.Ord12 = this.value" value="${adjektiv.Ord12}"/>
+            <input type="text" oninput="adjektiv.Ord13 = this.value" value="${adjektiv.Ord13}"/>
+            <input type="text" oninput="adjektiv.Ord14 = this.value" value="${adjektiv.Ord14}"/>
+            <input type="text" oninput="adjektiv.Ord15 = this.value" value="${adjektiv.Ord15}"/>
+            <input type="text" oninput="adjektiv.Ord16 = this.value" value="${adjektiv.Ord16}"/>
+            <input type="text" onchange="erHistorieKlar()" oninput="adjektiv.Ord17 = this.value" value="${adjektiv.Ord17}"/>
+            <br>
+            <button ${laasKnapp} onclick="submitHistorie()">Få historie</button>
+            `;
+        }
+        
+        function fåHistorie() {
+            document.getElementById("app").innerHTML =/*html*/`
+            <div id="histore1"> Det var en gang Geir og Eskil pratet om hvor utrolig <b>${adjektiv.Ord1}</b> Therese var.
+            Men Therese var lei. Hun var lei av all den <b>${adjektiv.Ord2}</b> mobbingen.<br> Så Therese spurte Linn:
+            Hva skal jeg gjøre nå med Geir og Eskil? <br>Linn foreslo at Erlend kunne banke opp Geir og Eskil,
+            men det var ikke Therese enig i.
+            <br><button onclick="historieTo()">Neste side</button>
+            `;
+        }
+
+        function historieTo() {
+            document.getElementById("app").innerHTML =/*html*/`
+            <div>Plutselig kommer Therese med en <b>${adjektiv.Ord3}</b> ide. Hva med en <b>${adjektiv.Ord4}</b> grov vits. 
+            Det ville jo lette på den <b>${adjektiv.Ord5}</b> stemmingen</div><br/>
+            <div>Dette syntes Linn og Erlend en <b>${adjektiv.Ord6}</b> god ide.</div><br>
+            <button onclick="historieTre()">Neste side</button>
+            `;
+        }
+
+        function historieTre() {
+            document.getElementById("app").innerHTML =/*html*/`
+            <div>Plutselig var the Chorei og Therese var klar for å komme med en <b>${adjektiv.Ord7}</b> grov vits.</div><br>
+            <div>Benjamin ble helt <b>${adjektiv.Ord8}</b> av den grove vitsen.</div><br>
+            <button onclick="historieFire()">Neste side</button>
+            `;
+        }
+
+        function historieFire() {
+            document.getElementById("app").innerHTML =/*html*/`
+            <div>Dani likte ikke at Benjamin ble <b>${adjektiv.Ord9}</b> av den grove vitsen, så Dani kom isteden med en helt <b>${adjektiv.Ord10}</b> waifu meme.</div><br>
+            <div>Da fikk Kristian seg en <b>${adjektiv.Ord11}</b> latter. Men ting begynte å bli veldig <b>${adjektiv.Ord12}</b>.</div><br>
+            <div>Hvorfor kan ikke alle bare være venner ville den <b>${adjektiv.Ord13}</b> Tommy ha svar på.</div><br>
+            <div>Da sier Tomas: Ja, jeg trodde denne <b>${adjektiv.Ord14}</b> skolen skulle ha fokus på nøkkelkompetanse?</div><br>
+            <button onclick="historieFem()">Neste side</button>
+            `;
+        }
+
+        function historieFem() {
+            document.getElementById("app").innerHTML =/*html*/`
+            <div>Da ender den <b>${adjektiv.Ord15}</b> Terje hele historien med å kode å si: <h1> Bli fred </h1>
+            Og det ble fred og en lykkelig skolegang for alle sammen og alle de <b>${adjektiv.Ord16}</b> menneskene ble <b>${adjektiv.Ord17}</b>
+            og gode venner igjen. </div><br>
+            <button onclick="window.location.reload()">Resett historie</button>
+            `;
+        }
+         
+        //Model
+        //Adjektiv variabelen er nå et objekt med flere underobjekter. "adjektiv.Ord1" får verdi fra først input boks og lagrer den i modellen
+        var laasKnapp = 'disabled';
+        var adjektiv = {
+            Ord1:'',
+            Ord2:'',
+            Ord3:'',
+            Ord4:'',
+            Ord5:'',
+            Ord6:'',
+            Ord7:'',
+            Ord8:'',
+            Ord9:'',
+            Ord10:'',
+            Ord11:'',
+            Ord12:'',
+            Ord13:'',
+            Ord14:'',
+            Ord15:'',
+            Ord16:'',
+            Ord17:'',
+        };
+
+        //Controller
+        //Sjekker om alle input feltene er fyllt inn og aktiverer knappen, hvis ikke returnerer den ingenting
+        function erHistorieKlar() {
+            if (adjektiv.Ord1 && adjektiv.Ord2 && adjektiv.Ord3 && adjektiv.Ord4 && adjektiv.Ord5 && adjektiv.Ord6 && 
+                adjektiv.Ord7 && adjektiv.Ord8 && adjektiv.Ord9 && adjektiv.Ord10 && adjektiv.Ord11 && adjektiv.Ord12 && 
+                adjektiv.Ord13 && adjektiv.Ord14 && adjektiv.Ord15 && adjektiv.Ord16 && adjektiv.Ord17) {
+                laasKnapp = '';
+                updateView();
+            } else {
+                return;
+            }
+        }
+
+        function submitHistorie(){
+            fåHistorie();
+        }
+        updateView();
+    </script>
+</body>
+</html>
