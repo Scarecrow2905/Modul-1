@@ -159,6 +159,18 @@ body {
     display: none;
 }
 
+.playerModel .body {
+    background-color: #000;
+    height: 45px;
+    margin: auto;
+    width: 2 px;
+}
+
+.playerModel .body [data="false"] {
+    display: none;
+}
+    
+
 
 
 

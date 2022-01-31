@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    html {
+    max-width: 100ch;
+    padding:2ch;
+    background-color: rgb(67, 8, 116);
+    margin:auto;
+    font-size:1.2em;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+
+        // Model
+        var pizzaDiv = {
+            bread: '',
+            fill: '',
+            strl: '',
+            form:'',
+        };
+
+        // View
+        function showView() {
+
+            document.getElementById("app").innerHTML = `
+
+            <h3> Bestill Pizza </h3>
+            <div style="padding-bottom: 20px;">Gjør et valg på hver av linjene:</div><br>
+
+            Bunn:
+            <input type="radio" name="bunn" ${pizzaDiv.bread === 'Tykk' ? 'checked' : ''} onchange="setBread('Tykk')" /> Tykk
+            <input type="radio" name="bunn" ${pizzaDiv.bread === 'Tynn' ? 'checked' : ''} onchange="setBread('Tynn')" /> Tynn <br>
+            
+            Fyll:
+            <input type="radio" name="fyll" ${pizzaDiv.fyll === 'Taco' ? 'checked' : ''} onchange="setFyll('Taco')" /> Taco
+            <input type="radio" name="fyll" ${pizzaDiv.fyll === 'Kylling' ? 'checked' : ''} onchange="setFyll('Kylling')" /> Kylling
+            <input type="radio" name="fyll" ${pizzaDiv.fyll === 'Pepperoni' ? 'checked' : ''} onchange="setFyll('Pepperoni')" /> Pepperoni
+            <input type="radio" name="fyll" ${pizzaDiv.fyll === 'Biff' ? 'checked' : ''} onchange="setFyll('Biff')" /> Biff <br>
+
+            Størrelse:
+            <input type="radio" name="strl" ${pizzaDiv.strl === 'Liten' ? 'checked' : ''} onchange="setStrl('Liten')" /> Liten
+            <input type="radio" name="strl" ${pizzaDiv.strl === 'Middels' ? 'checked' : ''} onchange="setStrl('Middels')" /> Middels
+            <input type="radio" name="strl" ${pizzaDiv.strl === 'Stor' ? 'checked' : ''} onchange="setStrl('Stor')" /> Stor <br>
+
+            Form:
+            <input type="radio" name:"form" ${pizzaDiv.form === 'Rund' ? 'checked' : ''} onchange="setForm('Rund')" /> Rund
+            <input type="radio" name:"form" ${pizzaDiv.form === 'Firkantet' ? 'checked' : ''} onchange="setForm('Firkantet')" /> Firkantet <br>
+
+            <button ${orderIsReady() ? '' : 'disabled'} onclick="alert('${pizzaDiv.strl} pizza er bestilt med ${pizzaDiv.fyll}, ${pizzaDiv.bread} bunn i ${pizzaDiv.form} form');">Bestill</button>
+            <br>
+            
+
+            ${orderIsReady() ? 'Alt er klart til bestilling!': `
+            <div>Ikke valgt: </div>
+
+            <ul>
+                ${breadIsSelected() ? '' : '<li>Bunn</li>'}
+                ${fyllIsSelected() ? '' : '<li>Bunn</li>'}
+                ${strlIsSelected() ? '' : '<li>Bunn</li>'}
+                ${formIsSelected() ? '' : '<li>Bunn</li>'}
+            </ul>
+            `}
+            `;
+        }
+        
+            
+        
+            
+
+        
+            
+         
+
+    
+
+        // Controller
+    
+        const setBread = (value) => {
+            pizzaDiv.bread = value;
+            showView();
+        }
+
+        const setFyll = (value) => {
+            pizzaDiv.fyll = value;
+            showView();
+        }
+
+        const setStrl = (value) => {
+            pizzaDiv.strl = value;
+            showView();
+        }
+
+        const setForm = (value) => {
+            pizzaDiv.form = value;
+            showView();
+        }
+
+
+        const orderIsReady = () => {
+            return pizzaDiv.bread && pizzaDiv.fyll && pizzaDiv.strl && pizzaDiv.form;
+        }
+        
+        const breadIsSelected = () => {
+            return pizzaDiv.bread;
+        }
+
+        const fyllIsSelected = () => {
+            return pizzaDiv.fyll;
+        }
+
+        const strlIsSelected = () => {
+            return pizzaDiv.strl;
+        }
+
+        const formIsSelected = () => {
+            return pizzaDiv.form;
+        }
+
+        showView();
+        
+    </script>
+</body>
+</html>
