@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="steinsakspapir.css">
+    <title>Stein, saks & papir</title>
+
+    <script src="script-2.js" defer></script>
+</head>
+<body>
+    <div id="app"></div>
+    
+
+
+
+    <script>
+        // Model
+        let userChoice = "";
+        let computerChoice = "";
+        let result = "";
+        updateView()
+
+        const computerChoiceDisplay = document.getElementById('computer-choice')
+        const userChoiceDisplay = document.getElementById('user-choice')
+        const resultDisplay = document.getElementById('result')
+        const possibleChoices = document.querySelectorAll('button')
+        
+
+        console.log("test",possibleChoices);
+
+        
+        
+        // View 
+        function updateView(){
+            document.getElementById('app').innerHTML = `
+            
+            <div class="selections"> 
+                <button id="rock" class="selection" onclick="buttonClick(event)">✊</button>
+                <button id="paper" class="selection" onclick="buttonClick(event)">✋</button>
+                <button id="scissors"  class="selection" onclick="buttonClick(event)">✌️</button>
+                </div>
+
+                <h2>Your choice: <span id="user-choice">${userChoice}</span></h2>
+                <h2>Computer choice: <span id="computer-choice">${computerChoice}</span></h2>
+                <h2>Result: <span id="result">${result}</span></h2>
+                `;
+        }
+
+        // Controller
+        function buttonClick(e) {
+            userChoice = "";
+            computerChoice = "";
+            result = "";
+            userChoice = e.target.id
+            generateComputerChoice();
+            getResult();
+            updateView();
+        }
+                
+        function generateComputerChoice() {
+            const randomNumber = Math.floor(Math.random() * 3 + 1);
+            console.log(randomNumber)
+
+            if (randomNumber === 1) {
+                computerChoice = 'rock'
+            } 
+            if (randomNumber === 2) {
+                computerChoice = 'scissors'
+            }
+            if (randomNumber === 3) {
+                computerChoice = 'paper'
+                
+            }
+            // updateView()
+        }
+        function getResult() {
+            
+            if (computerChoice === userChoice) {
+                result = 'Draw!'
+            }
+            if (computerChoice === 'rock' && userChoice === 'paper') {
+                result = 'You won!'
+            }
+            if (computerChoice === 'rock' && userChoice === 'scissors') {
+                result = 'Computer won!'
+            }
+            if (computerChoice === 'paper' && userChoice === 'scissors') {
+                result = 'You won!'
+            }
+            if (computerChoice === 'paper' && userChoice === 'rock') {
+                result = 'Computer won!'
+            }
+            if (computerChoice === 'scissors' && userChoice === 'rock') {
+                result = 'You won!'
+            }
+            if (computerChoice === 'scissors' && userChoice === 'paper') {
+                result = 'Computer won!'
+            }
+            // updateView();
+        }
+
+    </script>
+</body>
+</html>

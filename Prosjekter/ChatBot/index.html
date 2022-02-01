@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+
+        // Model
+        var message = '';
+        var response = '';
+        const appDiv = document.getElementById('app');
+
+        // View
+        view();
+        function view() {
+        appDiv.innerHTML = `
+        <input id="message" oninput="message = this.value" type="text" placeholder="skriv til meg">
+        <button id="reply" onclick="reply()">Send</button>
+        <div id="response">${response}</div>    
+        `;
+            
+        }
+
+        // Controller
+        function reply() {
+
+        if (message == "Hei") { 
+        response += '<br> Deg: ' + message; 
+        response += '<br> Chatbot: Hallo!';
+        view();
+        }
+
+        if (message == "Hvordan har du det?") { 
+
+        response += '<br> deg:' + message;
+        response += '<br> Chatbot: Det går bra!';
+        view();
+        }
+
+        if (message != "Hei" && "Hvordan har du det?") {
+
+        response += '<br> deg:' + message;
+        response += '<br> Hvem tror du at du er????';
+        view();
+        }
+        }
+            
+        
+        
+    </script>
+</body>
+</html>
