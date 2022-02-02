@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+
+        // Commands
+
+        // Model
+        var message = '';
+        var response = '';
+        const appDiv = document.getElementById('app');
+
+        // View
+        view();
+        function view() {
+        appDiv.innerHTML = `
+        <input id="message" oninput="message = this.value" type="text" placeholder="skriv til meg">
+        <button id="reply" onclick="reply()">Send</button>
+        <div id="response">${response}</div>    
+        `;
+            
+    }
+
+        // Controller
+        function reply() {
+
+        if (message == "Hei") { 
+        response += '<br> Deg: ' + message; 
+        response += '<br> Chatbot: *Beep Hallo!';
+        view();
+        }
+
+        if (message == "Hvordan går det?") { 
+
+        response += '<br> Deg:' + message;
+        response += '<br> Chatbot: *BeepBoop Det går bra!';
+        view();
+        }
+
+        if (message == "Er du en bot?") { 
+
+        response += '<br> Deg:' + message;
+        response += '<br> Chatbot: *BeepBoop Aner ikke hva du snakker om!';
+        view();
+        }
+
+        if (message == "Er du en bot?") { 
+
+        response += '<br> Deg:' + message;
+        response += '<br> Chatbot: *BeepBoop Aner ikke hva du snakker om!';
+        view();
+        }
+
+        if (message == "Hvordan er været?") { 
+
+        response += '<br> Deg:' + message;
+        response += '<br> Chatbot: *BeepBoop Prøv å se ut vinduet.';
+        view();
+        }   
+
+        if (message == "Fortell en vits") { 
+
+        response += '<br> Deg:' + message;
+        response += '<br> Chatbot: *BeepBoop Lada har endelig lansert en elbil.. Den skal hete NyLada';
+        view();
+        }
+
+    }
+        
+            
+        
+        
+    </script>
+</body>
+</html>
