@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(43, 87, 122);
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script>
+        // Model
+
+        display = '';
+        kode = '2905';
+        
+        //View
+
+        function showView() {
+
+        document.getElementById('app').innerHTML = `
+        
+        <input type="text">${display}</div>
+        <br>
+        <button onclick="n1(this.innerHTML)">1</button>
+        <button onclick="n1(this.innerHTML)">2</button>
+        <button onclick="n1(this.innerHTML)">3</button>
+        <br>
+        <button onclick="n1(this.innerHTML9">4</button>
+        <button onclick="n1(this.innerHTML)">5</button>
+        <button onclick="n1(this.innerHTML)">6</button>
+        <br>
+        <button onclick="n1(this.innerHTML)">7</button>
+        <button onclick="n1(this.innerHTML)">8</button>
+        <button onclick="n1(this.innerHTML)">9</button>
+        
+
+        
+        `;
+    }
+    
+        // Controller
+        function n1(tallkode){
+            display += tallkode;
+            if (display == kode) {
+                alert("Riktig!")
+            }
+        }
+    showView();
+        
+
+    </script>
+</body>
+</html>

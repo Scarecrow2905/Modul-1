@@ -1,0 +1,2 @@
+let numbers;
+let selectedIndex;

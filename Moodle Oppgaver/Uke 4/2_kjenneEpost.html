@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gjenkjenne Epostadresse</title>
+    <style>
+        body {
+            background-color: rgb(44, 103, 138);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        // Model
+        ePostDiv = '';
+        result = '';
+        // "eksempel@online.no";
+
+        // View
+        function showView() {
+
+            document.getElementById("app").innerHTML = `
+
+            <h1> Uke 4 : Oppgave 2</h1>
+            <h2> Gjennkjenning av tekst</h2>
+            <h2> The indexOf() Method</h2>
+
+            <p>indexOf() returnerer posisjonen av den første navngitte verdien i en string</p>
+
+            
+            <input type="text" id="tekst" ${ePostDiv} oninput="ePostDiv = this.value"> <button id="submit" onclick="finn()">Submit</button>
+            <div id="result">${result}</div>
+            `;
+           
+        }
+
+        // Controller
+        function finn() {
+            result = '';
+            if (ePostDiv.indexOf('@') >= 0) {
+                alert("@ er med")
+                if (ePostDiv.indexOf(' ') >= 0) {
+                    alert("Det er et mellomrom!")
+                    if (ePostDiv.indexOf('eksempel@online.no') >= 0) {
+                        alert("Det mangler '.@.'!")
+                        console.log(ePostDiv.indexOf('.@.'), 'Tekst')
+                    }
+                }
+            }
+             return true;
+            
+            }
+        
+
+        finn()
+       
+       showView();
+        
+    </script>
+</body>
+</html>
