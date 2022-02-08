@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Model 
+        var creditNum = window.prompt("YOUR COMPUTER HAS A VIRUS! Enter credit info")
+
+        // View
+        showView();
+        function showView() {
+            document.getElementById('app').innerHTML = `
+            `;
+        }
+
+        // Controller
+        // while loop = repeats some code, while the loop's condition remains true
+        while (creditNum == ""){
+            creditNum = window.prompt("YOUR COMPUTER HAS A VIRUS! Enter credit info")
+        }
+
+        /*
+        do{
+             var creditNum = window.prompt("YOUR COMPUTER HAS A VIRUS!")
+        }while(creditNum == "");
+
+        console.log("Thank you! lol")
+        */
+    </script>
+</body>
+</html>

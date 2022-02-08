@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Model
+        let cars = [
+            'Mustang',
+            'Bmw',
+            'Toyota'
+        ];
+       
+        // View
+
+        showView();
+        function showView(){
+        let html = '';
+        document.getElementById('app').innerHTML += `
+       ${showCars()}
+            <div>${cars}</div>
+      
+         ` };
+
+        function showCars(){
+             let html = '';
+             for (let i = 0; i <cars.length; i++) {
+                html += `<li onclick="buyCar()">${cars[i]}</li>`;
+                 
+             }
+            return html;
+        }
+
+        // Controller
+
+        function buyCar(){
+
+            text = `Du har kjøpt ${newCar}`;
+        };
+        
+          
+        
+        //showView();
+    </script>
+
+</body>
+</html>

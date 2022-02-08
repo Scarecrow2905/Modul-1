@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="lib.js"></script>
+</head>
+<body>
+    Dag: <input id="day" oninput="showDayAndTime()" type="range" min="1" max="7" /> <br />
+    Time: <input id="hour" oninput="showDayAndTime()" type="range" min="0" max="23" /> <br />
+    Minutter: <input id="minute" oninput="showDayAndTime()" type="range" min="0" max="59" /> <br />
+
+    <div id="dayAndTime" style="padding-top: 20px;" ></div>
+    <hr>
+    <div id="dayType" style="padding-top: 20px;" ></div>
+
+    <script type="text/javascript">
+        showDayAndTime();
+    </script>
+
+</body>
+</html>

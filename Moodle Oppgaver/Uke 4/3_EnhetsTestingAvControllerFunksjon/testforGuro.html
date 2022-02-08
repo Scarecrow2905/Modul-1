@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta hhtp-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gjenkjenne Epostadresse</title>
+<style>
+    body{
+    background-color: rgb(102,205,170);
+}
+</style>
+</head>
+<div id="app"></div>
+
+<script>
+
+//Modell
+ePostDiv='';
+result='';
+//"olanordmann@online.no";
+
+//View
+function showView(){
+
+document.getElementById("app").innerHTML= `
+
+<p>indexOf() returnere posisjonen av den fÃ¸rste navngitte verdien i en string </p>
+
+<input type="text" id="text" ${ePostDiv} oninput="ePostDiv" = this.value"><button id=submit" onclick="finn()">submit</button>
+<div id="result">${result}</div>
+
+`;
+
+}
+
+//Controller
+function recognizeMail(){
+recognized='';
+if (ePostDiv.indexOF('@') >= 0) {
+    alert ("Dette er en ePost")
+    if (ePostDiv.indexOF(' ') >=0) {
+        alert("OBS OBS ! Mellomrom")
+        if (ePostDiv.indexOF('olanordmann@online.no') >=0){
+        alert("Det mangler '.@.'!")
+        console.log(ePostDiv.indexOF('.@.'), 'tekst')
+        }
+    }
+}
+return true;
+
+}
+
+finn()
+
+showView();
+
+</script>
+</body>
+</html>
