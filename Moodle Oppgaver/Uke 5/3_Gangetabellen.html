@@ -9,7 +9,7 @@
 <body>
     <h2>Gangetabellen</h2>
 
-    <input type="range" min="1" max="100" value="5" />
+    <input type="range" min="1" max="100" value="5" oninput="changeColumnCount(this.value)"/>
     <div id="multiplicationMatrix"></div>
     <script>
         // hjelpevariabler for View og Controller
@@ -27,13 +27,28 @@
 
         // View 
         showView();
-        function showView(); {
+        function showView() {
             let html = '';
             for (let i = 0; i < multiplicationMatrix.length; i++) {
                 let number = multiplicationMatrix[i];
                 html += `<div>${number}</div>`;
             }
+            multiplicationMatrixDiv.innerHTML = html;
+            multiplicationMatrixDiv.style.display = 'grid';
+            multiplicationMatrixDiv.style.gridTemplateColumns = `repeat(${columnCount},40px)`;
             
+        }
+
+        // Controller
+        function changeColumnCount(value) {
+            columnCount = value;
+            multiplicationMatrix = [];
+            for (let n1 = 1; n1 <= value; n1++) {
+                for (let n2 = 1; n2 <= value; n2++) {
+                    multiplicationMatrix.push(n1 * n2);
+                }
+            }
+            showView();
         }
         
             
