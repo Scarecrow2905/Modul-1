@@ -11,7 +11,7 @@
         }
 
             div.cell {
-                background-color:lightgray;
+                background-color:rgb(27, 80, 141);
                 width: 100px;
                 height: 100px;
                 float: left;
@@ -26,11 +26,11 @@
                 clear: left;
             }
 
-            div.colorO {
-                color: blue;
+            div.coloro {
+                color: rgb(255, 230, 0);
             }
 
-            div.colorX {
+            div.colorx {
                 color: red;
             }
     </style>
@@ -39,25 +39,47 @@
     <div id="board"></div>
 
     <script type="text/javascript">
-
         // Hjelpevariabler for View og Controller
-
         let boardDiv = document.getElementById('board');
 
         // Model
-        let board = ['', '', '', '', '', '', '', '', '']; 
+        let gameActive;
+        let board = ['', '', '', '', '', '', '', '', '', '']; 
+        const winningMessage = () => `Spiller ${currentPlayer} har vunnet!`;
+        const drawMessage = () => `Spillet ble uavgjort!`;
+        const currentPlayerTurn = () => `${currentPlayer} sin tur.`;
+
+        const winningConditions = [
+            [0, 1, 2], // 
+            [3, 4, 5], // x x x
+            [6, 7, 8], //
+
+            [0, 3, 6], // x
+            [1, 4, 7], // x
+            [2, 5, 8], // x
+
+            [0, 4, 8], // x
+            [6, 4, 2], //   x
+                       //     x
+
+        ];
 
         // View
+
         showView();
         function showView() {
             let html = '';
             for (let i = 0; i < 9; i++) {
                 let first = i % 3 == 0 ? 'first' : '';
-                html += `<div onclick="setX(${i}" class="cell color${board[i]} ${first}">${board[i]}</div>`;
+                html += `<div onclick="setX(${i})" class="cell color${board[i]} ${first}">${board[i]}</div>`;
             }
             boardDiv.innerHTML = html;
+            
+            
         }
+
         // Controller
+
         function setX(index) {
             console.log(index);
             if (board[index] === '') {
@@ -73,8 +95,36 @@
             let random = Math.floor(Math.random() * blankIndexes.length);
             let blankIndex = blankIndexes[random];
             board[blankIndex] = 'o';
-            show();
+            showView();
+            checkWinning();
+        }
+
+        // Work in Progress*!*!*!*!
+        function checkWinning(r) {
+            let roundWon = false; // Her er roundWon
+            for (let i = 0; i <= 9; i++) {
+                const winCondition = winningConditions[i]; 
+                let a = board[winCondition[0]];
+                let b = board[winCondition[1]];
+                let c = board[winCondition[2]];
+                if (a === '' || b === '' || c === '') {
+                    continue; // Continue "hopper over" en iteration i loop'en
+                }
+                if (a === b && b === c) {
+                    roundWon = true;
+                    break;
+                }
+            }
+            if (roundWon) {
+                alert('Du vant!');
+                gameActive = false;
+                return;
+            }
         }
     </script>
 </body>
 </html>
+        
+
+
+
