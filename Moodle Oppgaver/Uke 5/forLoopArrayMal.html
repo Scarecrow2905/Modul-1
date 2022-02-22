@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+<script>
+
+
+// Model 
+let array = [];
+
+// let underArray = [];
+// let overArray = [];
+let input = '';
+
+let overAge = 0;
+let underAge = 0;
+
+// View
+
+show();
+function show() {
+let html = `
+<input type="number" oninput="input = this.value" placeholder="Legg inn din alder">
+<button onclick="leggTil()">Legg til</button>
+<div>alle aldere : ${array.join(' ')} </div>
+<div>Under 20: ${underAge}<br>
+    Over 20: ${overAge}
+    </div>
+`;
+
+// `
+// <div> under 20: ${underArray.length} hele lista: ${underArray.join(' ')}</div>
+// <div>Over 20:${overArray.join(' ')}</div>
+
+// `;
+
+document.getElementById('app').innerHTML = html;
+}
+
+// Controller 
+
+function leggTil(){
+    let html = '';
+    // if(input < 20){
+    //     underArray.push(input)
+    // }
+    // else{
+    //     overArray.push(input)
+    // }
+
+    array.push(input)
+    overAge = 0;
+    underAge = 0;
+    if(input == '')return;
+    for(let i = 0; i < array.length; i++){
+
+        if (array[i] >= 20) {
+            overAge ++;
+        } 
+        if(array[i]< 20){
+            underAge ++;
+        }
+
+    } 
+}; 
+    show();
+ 
+
+ <script>
+</body>
+</html>

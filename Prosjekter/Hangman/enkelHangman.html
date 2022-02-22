@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        div {
+            background-color: rgb(rgb(58, 16, 173));
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+
+        // Hjelpevariabler
+        let html = ``;
+        const appDiv = document.getElementById('app');
+
+        // Model
+
+        let words = ['pasta', 'mountain', 'yellow', 'zebra']
+        random = Math.floor(Math.random() * words.length);
+        var activeWord = words[random];
+        let wrongWordCount = 0;
+
+        // View
+        showView();
+        function showView(){
+            appDiv.innerHTML = `
+            <div>Antall feil gjettninger: ${wrongWordCount}</div>
+            <input type="text" onchange="check(this.value)">`
+        }
+
+        // Controller
+        function check(guessedWord){
+            if(guessedWord == activeWord){
+                alert('You Won!')
+            } else {
+                wrongWordCount ++;
+                alert('Feil ord')
+            }
+        }
+
+    </script>
+</body>
+</html>

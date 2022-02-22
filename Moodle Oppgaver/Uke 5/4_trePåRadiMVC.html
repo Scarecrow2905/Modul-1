@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style type="text/css">
+        body {
+            background-color: rgb(37, 47, 58);
+        }
         div {
             user-select: none;
         }
@@ -43,6 +46,7 @@
         let boardDiv = document.getElementById('board');
 
         // Model
+        let roundWon;
         let gameActive;
         let board = ['', '', '', '', '', '', '', '', '', '']; 
         const winningMessage = () => `Spiller ${currentPlayer} har vunnet!`;
@@ -96,17 +100,16 @@
             let blankIndex = blankIndexes[random];
             board[blankIndex] = 'o';
             showView();
-            checkWinning();
         }
 
         // Work in Progress*!*!*!*!
-        function checkWinning(r) {
+        function checkWinning() {
             let roundWon = false; // Her er roundWon
             for (let i = 0; i <= 9; i++) {
                 const winCondition = winningConditions[i]; 
                 let a = board[winCondition[0]];
-                let b = board[winCondition[1]];
-                let c = board[winCondition[2]];
+                let b = board[winCondition[2]];
+                let c = board[winCondition[3]];
                 if (a === '' || b === '' || c === '') {
                     continue; // Continue "hopper over" en iteration i loop'en
                 }
@@ -116,7 +119,7 @@
                 }
             }
             if (roundWon) {
-                alert('Du vant!');
+                alert('Win!')
                 gameActive = false;
                 return;
             }

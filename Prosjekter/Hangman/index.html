@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Hjelpevariabler
+        let html = ``;
+        const appDiv = document.getElementById('app');
+
+
+        // Model
+        let words = ['pasta', 'mountain', 'yellow', 'zebra'];
+        let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+        't', 'u', 'v', 'w', 'x', 'y', 'z'
+        ];
+        random = Math.floor(Math.random() * words.length);
+        var activeWord = words[random];
+
+        
+        // View
+        showView();
+        function showView(){
+            let html = `feil bokstaver: ${wrongGuesses.join(' ')}`
+            for (let i = 0; i < alphabet.length; i++){
+                html += `<button onclick="checkChar(this.innerHTML)">${alphabet[i]}</button>`
+            }
+
+            appDiv.innerHTML = html;
+        }
+
+        // Controller 
+
+        function checkChar(guessedLetter){
+        //console.log(guessedLetter, 'hva er guessedLetter')
+        
+        if(activeWord.includes(guessedLetter)){
+            alert('bokstaven finnes i ordet')
+        } else {
+            alert('bokstaven er ikke i ordet')
+        }
+        showView();
+        }
+
+    </script>
+</body>
+</html>

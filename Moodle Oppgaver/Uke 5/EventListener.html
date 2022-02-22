@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="EventListener.js"></script>
+    <style>
+        .grandparent{
+            background-color: green;
+            width: 150px;
+            height: 150px;
+            margin-top: 25%;
+            background: red;
+            overflow: hidden;
+            position: relative;
+            margin: auto;
+        }
+
+        .parent {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            margin-top: -13%;
+            background: blue;
+        }
+
+        .child {
+            position:relative;
+            width: 60px;
+            height: 60px;
+            margin: auto;
+            margin-top: -9%;
+            background-color: green;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="grandparent"></div>
+        <div class="parent"></div>
+            <div class="child"></div>
+
+</body>
+</html>
