@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => { // All kode vil bli kjørt
     let squares = []
     let isGameOver = false
 
+    /////////////////////////////////////////////////////////////////////////
+
     // Create Board
     function createBoard() {
         // Shuffle't spill array med random bomber
@@ -33,6 +35,9 @@ document.addEventListener('DOMContentLoaded', () => { // All kode vil bli kjørt
                 addFlag(square)
             }
         }
+
+    ///////////////////////////////////////////////////////////////////
+
         // *** NUMMER ***
         //Legg til nummer
         for(let i = 0; i < squares.length; i++) {
@@ -51,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => { // All kode vil bli kjørt
                 if (i < 89 && squares[i +width].classList.contains('bomb')) total ++ // Below square
                 squares[i].setAttribute('data', total) // Gir div class="valid" en Data attribute som er lik antall bomber som er rundt
                 console.log(squares[i])
+                
             }
         }
     }
@@ -64,10 +70,12 @@ document.addEventListener('DOMContentLoaded', () => { // All kode vil bli kjørt
                 square.classList.add('flag')
                 square.innerHTML = '🚩'
                 flags ++
+                checkforWin()
             } else {
                 square.classList.remove('flag')
                 square.innerHTML = ''
                 flags --
+                
             }
         }
     }
@@ -84,6 +92,10 @@ document.addEventListener('DOMContentLoaded', () => { // All kode vil bli kjørt
            let total = square.getAttribute('data')
            if (total !=0) {
                square.classList.add('checked')
+               if (total == 1) square.classList.add('one') // Her gir jeg nummerene hver sin class som kan komme godt med i Style
+               if (total == 2) square.classList.add('two')
+               if (total == 3) square.classList.add('three')
+               if (total == 4) square.classList.add('four') 
                square.innerHTML = total // Viser fram på square som er klikket mengden data="" altså antall bomber rundt
                return
            }
@@ -157,6 +169,21 @@ document.addEventListener('DOMContentLoaded', () => { // All kode vil bli kjørt
                 square.innerHTML = '💣'
             }
         })
+    }
+
+    // SJEKK FOR WIN
+    function checkforWin () {
+    let matches = 0
+
+        for (let i = 0; i < squares.length; i++) {
+            if (squares[i].classList.contains('flag') && squares[i].classList.contains('bomb')) {
+                matches ++
+            }
+            if (matches === bombAmount) {
+                console.log('You WIN!')
+                isGameOver = true
+            }
+        }
     }
 
 

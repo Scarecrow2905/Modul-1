@@ -8,7 +8,7 @@
 html, body {
     margin: auto;
     padding: 2ch;
-    background-color:rgb(37, 28, 11);
+    background-color:rgb(10, 34, 15);
     color: rgb(112, 112, 112);
     font-size:1.2em;
     min-height: 100%;
@@ -32,7 +32,7 @@ html, body {
     text-align: center;
     font-size: 1.1em;
     font-weight: lighter;
-    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid rgb(15, 160, 59);
     padding-left: 50px;
 }
 
@@ -46,6 +46,20 @@ html, body {
 
 .main-header {
     background-color: rgba(0, 0, 0, .3);
-    background-image: url("header.jpg");
-    
+    background-image: url(banner.jpg);
+    background-position: 130%;
+}
+
+
+
+
+.facebook {
+    background-image: url(facebookLogo.jpg);
+    height: 2px;
+    width: 2px;
+}
+.youtube {
+    background-image: url(youtubeLogo.JPG);
+    height: 2px;
+    width: 2px;
 }

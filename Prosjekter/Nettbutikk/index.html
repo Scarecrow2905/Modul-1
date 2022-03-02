@@ -16,10 +16,48 @@
 
         let html = '';
 
+        const model = {
+
+            activepage: 'shop',
+            inventory: '',
+
+            totalprice: 0,
+            shoppingCart: [],
+            numberOfItems: 0,
+
+            product: [
+                {
+                    name: "RTX 3060",
+                    price: 4000,
+                    inStock: 3,
+                },
+                {
+                    name: "RTX 3070",
+                    price: 5000,
+                    inStock: 2,
+                },
+                {
+                    name: "RTX 3080",
+                    price: 7000,
+                    inStock: 4,
+                },
+                {
+                    name: "RTX 3080Ti",
+                    price: 9000,
+                    inStock: 6,
+                },
+            ]
+        }
+
         // View 
 
-        showView();
-        function showView(){
+        showStore();
+        function showStore(){
+        for (let i = 0; i < model.product.length; i++) {
+            let first = i % 4 == 0 ? 'first' : ''; 
+        
+        
+        
         document.getElementById('app').innerHTML = `
 
         <header class="main-header">
@@ -30,34 +68,32 @@
                     <li><a href="about.html">ABOUT</a></li>
                 </ul>
             </nav>
-            <h1 class="whiskey-name whiskey-name-large">The casual whiskey enjoyer</h1>
-            <div class="container">
-                <button type="button" class="btn btn-header btn">Get this months reccommended!</Button
-            </div>
+            <h1 class="gpu-name gpu-name-large">The GPU Shop #sayNoToScalpers</h1>
             </header>
 
             <section class="content-section container">
                 <h2 class="section header">Types</h2>
                 <div>
-                    <div class="types-row">
-                        <span class="brand-item type-name">Name</span>
-                        <span class="brand-item type-brand">Brand</span>
-                        <span class="brand-item type-malt">Malt</span>
-                        <button type="button" class="type-item brand-btn btn btn-primary">Add to cart</button>
+
+                <div class="cell ${first}>
+                        <span class="name-item type-name">${model.product[i].name}</span>
+                        <span class="price-item type-price">${model.product[i].price}</span>
+                        <span class="inStock-item type-model">${model.product[i].inStock}</span>
+                        <button type="button" class="type-item price-btn btn btn-primary">Add to cart</button>
                 </div>
 
                 <div class="types-row">
-                        <span class="brand-item type-name">Name</span>
-                        <span class="brand-item type-brand">Brand</span>
-                        <span class="brand-item type-malt">Malt</span>
-                        <button type="button" class="type-item brand-btn btn btn-primary">Add to cart</button>
+                        <span class="name-item type-name">${model.product[i].name}</span>
+                        <span class="price-item type-price">${model.product[i].price}</span>
+                        <span class="inStock-item type-model">${model.product[i].inStock}</span>
+                        <button type="button" class="type-item price-btn btn btn-primary">Add to cart</button>
                 </div>
 
                 <div class="types-row">
-                        <span class="brand-item type-name">Name</span>
-                        <span class="brand-item type-brand">Brand</span>
-                        <span class="brand-item type-malt">Malt</span>
-                        <button type="button" class="type-item brand-btn btn btn-primary">Add to cart</button>
+                        <span class="name-item type-name">${model.product[i].name}</span>
+                        <span class="price-item type-price">${model.product[i].price}</span>
+                        <span class="inStock-item type-model">${model.product[i].inStock}</span>
+                        <button type="button" class="type-item price-btn btn btn-primary">Add to cart</button>
                 </div>
             </section>
 
@@ -78,16 +114,16 @@
 
             <footer class="main-footer">
                 <div class="container main-footer-container">
-                    <h3 class="whiskey-name">The casual whiskey enjoyer says "Drink responsibly"<h3>
+                    <h3 class="gpu-name"><h3>
                         <ul class="nav footer-nav">
                             <li>
                                 <a href="https://www.youtube.com" target="_blank">
-                                    <img src=""> Youtube logo kommer her
+                                    <img src=""> Youtube
                                 </a>
                             </li>
-                            <li>
+                            <li class="facebook">
                                 <a href="https://www.facebook.com" target="_blank">
-                                    <img src=""> facebook logo kommer her
+                                    <img src="">
                                 </a>
                             </li>
                         </ul>
@@ -96,9 +132,19 @@
         
         
         
-        `};
+        `}};
 
         // Controller
+        function addToCart(index){
+            if (model.product[index].inStock == 0) alert('Not in storage');
+            else {
+                model.product[index].inStock --;
+                model.numberOfItems ++;
+                model.totalprice += model.product[index].price;
+                model.shoppingCart.push(model.product[index].navn)
+            }
+            showStore();
+        }
         console.log("Her")
 
     </script>
